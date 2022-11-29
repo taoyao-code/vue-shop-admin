@@ -37,7 +37,7 @@
 - 获取代码
 
 ```bash
-git clone https://github.com/kailong321200875/vue-element-plus-admin.git
+git clone https://github.com/taoyao-code/vue-shop-admin.git
 ```
 
 - 安装依赖
