@@ -14,7 +14,8 @@ const request = (option: any) => {
     responseType: responseType,
     headers: {
       'Content-Type': headersType || default_headers
-    }
+    },
+    withCredentials: true
   })
 }
 export default {

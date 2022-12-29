@@ -29,7 +29,7 @@ const { wsCache } = useCache()
 const { t } = useI18n()
 
 const rules = {
-  username: [required()],
+  name: [required()],
   password: [required()]
 }
 
@@ -41,15 +41,15 @@ const schema = reactive<FormSchema[]>([
     }
   },
   {
-    field: 'username',
-    label: t('login.username'),
+    field: 'name',
+    label: t('login.name'),
     value: 'admin',
     component: 'Input',
     colProps: {
       span: 24
     },
     componentProps: {
-      placeholder: t('login.usernamePlaceholder')
+      placeholder: t('login.namePlaceholder')
     }
   },
   {
@@ -155,18 +155,18 @@ const getRole = async () => {
   const { getFormData } = methods
   const formData = await getFormData<UserType>()
   const params = {
-    roleName: formData.username
+    roleName: formData.name
   }
   // admin - 模拟后端过滤菜单
   // test - 模拟前端过滤菜单
   const res =
-    formData.username === 'admin' ? await getAdminRoleApi(params) : await getTestRoleApi(params)
+    formData.name === 'admin' ? await getAdminRoleApi(params) : await getTestRoleApi(params)
   if (res) {
     const { wsCache } = useCache()
     const routers = res.data || []
     wsCache.set('roleRouters', routers)
 
-    formData.username === 'admin'
+    formData.name === 'admin'
       ? await permissionStore.generateRoutes('admin', routers).catch(() => {})
       : await permissionStore.generateRoutes('test', routers).catch(() => {})
 
