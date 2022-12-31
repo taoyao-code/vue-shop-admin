@@ -128,7 +128,8 @@ const signIn = async () => {
 
       try {
         const res = await loginApi(formData)
-
+        // console.log(await loginApi(formData))
+        console.log(res)
         if (res) {
           wsCache.set(appStore.getUserInfo, res.data)
           // 是否使用动态路由

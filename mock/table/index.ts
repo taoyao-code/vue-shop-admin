@@ -41,7 +41,7 @@ for (let i = 0; i < count; i++) {
 export default [
   // 列表接口
   {
-    url: '/example/list',
+    url: '/api/example/list',
     method: 'get',
     timeout,
     response: ({ query }) => {
@@ -64,7 +64,7 @@ export default [
   },
   // 保存接口
   {
-    url: '/example/save',
+    url: '/api/example/save',
     method: 'post',
     timeout,
     response: ({ body }) => {
@@ -95,7 +95,7 @@ export default [
   },
   // 详情接口
   {
-    url: '/example/detail',
+    url: '/api/example/detail',
     method: 'get',
     response: ({ query }) => {
       const { id } = query
@@ -111,7 +111,7 @@ export default [
   },
   // 删除接口
   {
-    url: '/example/delete',
+    url: '/api/example/delete',
     method: 'post',
     response: ({ body }) => {
       const ids = body.ids

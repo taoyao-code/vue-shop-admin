@@ -520,7 +520,7 @@ const testList: string[] = [
 export default [
   // 列表接口
   {
-    url: '/role/list',
+    url: '/api/role/list',
     method: 'get',
     timeout,
     response: ({ query }) => {

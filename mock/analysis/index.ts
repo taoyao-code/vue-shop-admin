@@ -8,7 +8,7 @@ const timeout = 1000
 export default [
   // 分析页统计接口
   {
-    url: '/analysis/total',
+    url: '/api/analysis/total',
     method: 'get',
     timeout,
     response: () => {
@@ -25,7 +25,7 @@ export default [
   },
   // 用户来源
   {
-    url: '/analysis/userAccessSource',
+    url: '/api/analysis/userAccessSource',
     method: 'get',
     timeout,
     response: () => {
@@ -43,7 +43,7 @@ export default [
   },
   // 每周用户活跃量
   {
-    url: '/analysis/weeklyUserActivity',
+    url: '/api/analysis/weeklyUserActivity',
     method: 'get',
     timeout,
     response: () => {
@@ -63,7 +63,7 @@ export default [
   },
   // 每月销售额
   {
-    url: '/analysis/monthlySales',
+    url: '/api/analysis/monthlySales',
     method: 'get',
     timeout,
     response: () => {

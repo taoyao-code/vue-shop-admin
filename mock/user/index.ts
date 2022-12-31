@@ -12,26 +12,26 @@ const List: {
   roleId: string
   permissions: string | string[]
 }[] = [
-  {
-    username: 'admin',
-    password: 'admin',
-    role: 'admin',
-    roleId: '1',
-    permissions: ['*.*.*']
-  },
-  {
-    username: 'test',
-    password: 'test',
-    role: 'test',
-    roleId: '2',
-    permissions: ['example:dialog:create', 'example:dialog:delete']
-  }
-]
+    {
+      username: 'admin',
+      password: 'admin',
+      role: 'admin',
+      roleId: '1',
+      permissions: ['*.*.*']
+    },
+    {
+      username: 'test',
+      password: 'test',
+      role: 'test',
+      roleId: '2',
+      permissions: ['example:dialog:create', 'example:dialog:delete']
+    }
+  ]
 
 export default [
   // 列表接口
   {
-    url: '/user/list',
+    url: '/api/user/list',
     method: 'get',
     response: ({ query }) => {
       const { username, pageIndex, pageSize } = query
@@ -55,14 +55,15 @@ export default [
   },
   // 登录接口
   {
-    url: '/user/login',
+    url: '/api/user/login',
     method: 'post',
     timeout,
     response: ({ body }) => {
       const data = body
       let hasUser = false
+      console.log(data)
       for (const user of List) {
-        if (user.username === data.username && user.password === data.password) {
+        if (user.username === data.name && user.password === data.password) {
           hasUser = true
           return {
             code: result_code,
@@ -80,7 +81,7 @@ export default [
   },
   // 退出接口
   {
-    url: '/user/loginOut',
+    url: '/api/user/loginOut',
     method: 'get',
     timeout,
     response: () => {

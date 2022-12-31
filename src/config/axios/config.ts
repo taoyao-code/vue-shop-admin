@@ -14,7 +14,7 @@ const config: {
    */
   base_url: {
     // 开发环境接口前缀
-    base: 'http://127.0.0.1:8000',
+    base: '/api',
 
     // 打包开发环境接口前缀
     dev: '',
@@ -29,7 +29,7 @@ const config: {
   /**
    * 接口成功返回状态码
    */
-  result_code: '0',
+  result_code: 0,
 
   /**
    * 接口请求超时时间
