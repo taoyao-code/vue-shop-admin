@@ -142,6 +142,7 @@ export default {
     authorization: '权限管理',
     user: '用户管理',
     role: '角色管理',
+    admin: '管理员管理',
     document: '文档',
     inputPassword: '密码输入框',
     sticky: '黏性'
@@ -434,5 +435,30 @@ export default {
   inputPasswordDemo: {
     title: '密码输入框',
     inputPasswordDes: '基于 ElementPlus 的 Input 组件二次封装'
+  },
+  admin: {
+    title: '管理员管理',
+    message: '由于是模拟数据，所以只提供了两种不同权限的帐号，开发者可根据实际情况自行改造结合。',
+    index: '序号',
+    action: '操作',
+    username: '用户名',
+    password: '密码',
+    role: '角色',
+    remark: '备注',
+    remarkMessage1: '后端控制路由权限',
+    remarkMessage2: '前端控制路由权限',
+    is_admin: '是否管理员'
+  },
+  Role: {
+    title: '角色管理',
+    message: '由于是模拟数据，所以只提供了两种不同权限的帐号，开发者可根据实际情况自行改造结合。',
+    index: '序号',
+    action: '操作',
+    username: '用户名',
+    password: '密码',
+    role: '角色',
+    remark: '备注',
+    remarkMessage1: '后端控制路由权限',
+    remarkMessage2: '前端控制路由权限'
   }
 }

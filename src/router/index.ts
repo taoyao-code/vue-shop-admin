@@ -540,6 +540,14 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
         meta: {
           title: t('router.role')
         }
+      },
+      {
+        path: 'admin',
+        component: () => import('@/views/Authorization/admin.vue'),
+        name: 'Admin',
+        meta: {
+          title: t('router.admin')
+        }
       }
     ]
   }

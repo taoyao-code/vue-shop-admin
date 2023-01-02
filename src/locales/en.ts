@@ -142,6 +142,7 @@ export default {
     authorization: 'Authorization',
     user: 'User management',
     role: 'Role management',
+    admin: 'Admin management',
     document: 'Document',
     inputPassword: 'InputPassword',
     sticky: 'Sticky'
@@ -433,10 +434,25 @@ export default {
     role: 'Role',
     remark: 'Remark',
     remarkMessage1: 'Back end control routing permission',
-    remarkMessage2: 'Front end control routing permission'
+    remarkMessage2: 'Front end control routing permission',
+    is_admin: 'is admin'
   },
   inputPasswordDemo: {
     title: 'InputPassword',
     inputPasswordDes: 'Secondary packaging of Input components based on ElementPlus'
+  },
+  admin: {
+    title: 'Admin management',
+    message:
+      'Because it is simulated data, only two accounts with different permissions are provided, which can be modified and combined by developers according to the actual situation.',
+    index: 'Index',
+    action: 'Action',
+    username: 'Username',
+    password: 'Password',
+    role: 'Role',
+    remark: 'Remark',
+    remarkMessage1: 'Back end control routing permission',
+    remarkMessage2: 'Front end control routing permission',
+    is_admin: 'is admin'
   }
 }

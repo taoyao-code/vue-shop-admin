@@ -2,11 +2,12 @@
 import { ContentWrap } from '@/components/ContentWrap'
 import { useI18n } from '@/hooks/web/useI18n'
 import { Table } from '@/components/Table'
-import { getUserListApi } from '@/api/login'
 import { UserType } from '@/api/login/types'
 import { ref, h } from 'vue'
 import { ElButton } from 'element-plus'
 import { TableColumn, TableSlotDefault } from '@/types/table'
+
+import { getAdminListApi } from '@/api/Authorization'
 
 interface Params {
   pageIndex?: number
@@ -15,23 +16,36 @@ interface Params {
 
 const { t } = useI18n()
 
+let tableDataList = ref<[]>([])
+const loading = ref(true)
+
+const getTableList = async (params?: Params) => {
+  const res = await getAdminListApi({
+    params: params || {
+      page: 1,
+      limit: 20
+    }
+  })
+
+  if (res) {
+    tableDataList.value = res.data.list
+    loading.value = false
+  }
+}
+
 const columns: TableColumn[] = [
   {
     field: 'index',
-    label: t('Role.index'),
+    label: t('admin.index'),
     type: 'index'
   },
   {
-    field: 'username',
-    label: t('Role.username')
+    field: 'name',
+    label: t('admin.username')
   },
   {
-    field: 'password',
-    label: t('Role.password')
-  },
-  {
-    field: 'role',
-    label: t('Role.role')
+    field: 'is_admin',
+    label: t('admin.is_admin')
   },
   {
     field: 'remark',
@@ -49,27 +63,6 @@ const columns: TableColumn[] = [
   }
 ]
 
-const loading = ref(true)
-
-let tableDataList = ref<UserType[]>([])
-
-const getTableList = async (params?: Params) => {
-  const res = await getUserListApi({
-    params: params || {
-      pageIndex: 1,
-      pageSize: 10
-    }
-  })
-  // .catch(() => {})
-  // .finally(() => {
-  //   loading.value = false
-  // })
-  if (res) {
-    tableDataList.value = res.data.list
-    loading.value = false
-  }
-}
-
 getTableList()
 
 const actionFn = (data: TableSlotDefault) => {
@@ -78,7 +71,7 @@ const actionFn = (data: TableSlotDefault) => {
 </script>
 
 <template>
-  <ContentWrap :title="t('Role.title')" :message="t('Role.message')">
+  <ContentWrap :title="t('admin.title')" :message="t('admin.message')">
     <Table :columns="columns" :data="tableDataList" :loading="loading" :selection="false">
       <template #action="data">
         <ElButton type="primary" @click="actionFn(data as TableSlotDefault)">
@@ -88,3 +81,5 @@ const actionFn = (data: TableSlotDefault) => {
     </Table>
   </ContentWrap>
 </template>
+
+<style scoped></style>
